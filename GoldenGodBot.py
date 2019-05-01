@@ -33,6 +33,8 @@ def run_bot(r, comments_replied_to):
 	subreddit = r.subreddit('IASIP')
 	#for comment in r.subredditIP').comments(limit=200):
         for comment in subreddit.stream.comments(pause_after=-1):
+		if comment == None:
+			break
 		if "golden god" in comment.body.lower() and comment.id not in comments_replied_to and comment.author != r.user.me():
 			quoteSent = getQuote()
 			try:
